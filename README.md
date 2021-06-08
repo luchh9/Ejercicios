@@ -1,93 +1,53 @@
-# SilabaJS
-_____________
-Librería en Javascript para obtener en formato JSON las silabas, posición de la silaba tónica, tipo acentuación, hiato, diptongo y triptongo de una palabra.
+Ejercicios de javascript 
 
-Estructura JSON:
+1.-Crear un programa que, ingresada una palabra, muestre como salida:
 
-```javascript
-    {
-        palabra,         // (String) Palabra ingresada
-        longitudPalabra, // (int)    Longitud de la palabra
-        numeroSilaba,    // (int)    Número de silabas de la palabra
-        silabas,         // (Array)  Array de objeto que contiene la silaba (caracter) y la posicion en la palabra
-        tonica,          // (int)    Posición de la silaba tónica (empieza en 1)
-        letraTildada,    // (int)    Posición de la letra tildada (si la hay)
-        acentuacion,     // (int)    Tipo acentuacion de la palabra (Aguda, Grave, Esdrujula y Sobresdrujula)
-        hiato,           // (Array)  Array de objeto que contiene hiato (si la hay)
-        diptongo,        // (Array)  Array de objeto que contiene diptongo (si la hay)
-        triptongo        // (Array)  Array de objeto que contiene triptongo (si la hay)
-    }
-```
+    1. El número de apariciones de cada letra en la palabra.
+    2. 
+    3. Ordene alfabéticamente todas las letras de la palabra.
+    4. 
+    Ejemplo: Amarillo → [a -> 2, m -> 1, r -> 1, i -> 1, l -> 2, o -> 1] [aaillmor]
 
-Ejemplo de salida con la palabra **Leer**:
 
-```javascript
-{
-  "palabra": "leer",
-  "longitudPalabra": 4,
-  "numeroSilaba": 2,
-  "silabas": [
-    {
-      "inicioPosicion": 0,
-      "silaba": "le"
-    },
-    {
-      "inicioPosicion": 2,
-      "silaba": "er"
-    }
-  ],
-  "tonica": 2,
-  "letraTildada": -1,
-  "acentuacion": "Aguda",
-  "hiato": [
-    {
-      "tipoHiato": "Hiato simple",
-      "silabaHiato": "e-e"
-    }
-  ],
-  "diptongo": [],
-  "triptongo": []
-}
-```
 
-______________
 
-Como implementar:
+2.- Crear un programa que dada una palabra la separe en sus distintas silabas, siguiendo las
+siguientes reglas:
 
-* Incluimos la libreria:
-```html
-<script src="silabajs.js"></script>
-```
 
-* Asignamos el resultado de la palabra que le pasamos entre paréntesis:
-```javascript
-    var silaba = silabaJS.getSilabas('leer');
-```
+    1. Una sola consonante entre dos vocales se agrupa con la vocal que sigue.
+    Ejemplos: a-gu-je-ro, pe-lo-te-ro.
+    2. Dos consonantes entre dos vocales se agrupan una para cada vocal.
+    Ejemplos: in-men-son, gim-nas-ta.
+    Esta regla tiene una excepción: los grupos consonánticos pr, pl, br, bl, fr, fl, tr, tl, dr, dl, cr,
+    cl, gr, se unen a la vocal siguiente.
+    Ejemplos re-fres-co, a-flo-jar.
+    Las consonantes dobles en la escritura ch, ll, rr, responden a un solo fonema, por lo que
+    se consideran a los efectos de la separación silábica como una sola consonante.
+    Ejemplo, ca-lle, ce-rro.
+    3. Tres consonantes en medio de dos vocales se agrupan dos con la primera vocal y la
+    tercera con la vocal que sigue.
+    Ejemplos; ins-pec-tor, obs-ta-cu-li-zar.
+    Esta regla tiene la excepción anterior.
+    Ejemplos: A-tlan-ti-co, ham-bre.
+    4. Cuatro consonantes en medio de dos vocales se agrupan dos con la primera vocal y las
+    otras dos con la vocal que sigue.
+    Ejemplos: Cons-truc-ción, ins-truc-ción.
+    
+    
+3.- Crear un programa que te pida crear una contraseña, dicha contraseña debe respetar las
+siguientes reglas:
 
-* Ahora la variable *silaba* contiene el JSON con el resultado.
-
-_________________
- [Silabeador](http://tip.iatext.ulpgc.es/silabas/) (Código base en C++ de donde se realizo la migración)
- 
-_________________
-MIT License
-
-Copyright (c) 2018 Nicolás Cofré Méndez.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+    1. Debe contener al menos 2 letras mayúsculas.
+    2. Debe contener al menos 3 números no repetidos.
+    3. Debe contener al menos 1 carácter de esta lista (* _ - ¿ ¡ ? # $)
+    4. No debe contener espacios en blanco.
+    5. Debe tener entre 8 y 15 caracteres, no más, no menos.
+    Ejemplo:
+    Contraseña: “FaciliTo22 ” ->
+    Error la contraseña no debe tener números repetidos
+    Error la contraseña debe tener 3 números
+    Error la contraseña debe tener al menos un carácter especial (* _ - ¿ ¡ ? # $)
+    Error la contraseña no debe tener espacios en blanco
+    Contraseña: “ContraseñA495*”
+    Contraseña valida
