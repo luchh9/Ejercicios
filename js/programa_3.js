@@ -1,5 +1,9 @@
 'use strict';
 
+//este ejercicio realice las advertencias con alertas, 
+//tenia pensado hacerlas agregandolas abajo del input modificando las clases y poniendolas en rojo o verde
+//en caso de que esten bien o mal (para que quede mas bonito)
+
 function comprobarpassword(){
 
     let password = document.getElementById('contraseña').value;
@@ -14,10 +18,12 @@ function comprobarpassword(){
 
     let numerosunicos = comprobarnumerosrepetidos(password); //3 numeros unicos o mas
 
-
+    //si esta todo bien 
     if ((!signos && !espacios) && (cantidadmayusculas > 1) && (numerosunicos > 2) && (cantidadcaracteres > 7) && (cantidadcaracteres < 16)) {
         alert("La contraseña es valida")
     }
+
+    //advertencias de error
 
     if(espacios){
         alert("contiene espacios")
@@ -42,7 +48,7 @@ function comprobarpassword(){
 
 function comprobarespacios(pw){
     
-    let password2 = pw.replace(/ /g, "")                    //quito los espacios
+    let password2 = pw.replace(/ /g, "")  //quito los espacios
 
     if (pw != password2) { //comparo la misma password con y sin espacios
         return true
@@ -67,16 +73,16 @@ function comprobarsignos(pw){
 function comprobarmayusculas(pw){
     
     let cantidad = 0;
-    let mayusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let mayusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";  //hago un recorrido de cada una de las letras mayusculas y comparo
 
     for (let i = 0; i < mayusculas.length; i++) {
         for (let x = 0; x < pw.length; x++) {
             if(pw[x]==mayusculas[i]){
-                cantidad+=1;
+                cantidad+=1;                       //si hay alguna letra sumo en la cantidad
             }
         }
     }
-    return cantidad
+    return cantidad                                //devuelvo la cantidad de letras mayus
 }
 
 function comprobarnumerosrepetidos(pw){ //en esta funcion ordeno la contraseña ingresada (la transformo en un arreglo) para luego recorrerla y verificar los numeros repetidos 
@@ -95,7 +101,7 @@ function comprobarnumerosrepetidos(pw){ //en esta funcion ordeno la contraseña 
       })
 
     for(let i = 0; i < arraypassword.length; i++){
-        if( !isNaN(arraypassword[i]) && (arraypassword[i] != arraypassword[i+1] && arraypassword[i] != arraypassword[i-1]) ){ //si el caracter es un numero unico, ya que el siguiente y anterior en el arreglo son diferentes (acuerdese que estan ordenados) se suma el contador
+        if( !isNaN(arraypassword[i]) && (arraypassword[i] != arraypassword[i+1] && arraypassword[i] != arraypassword[i-1]) ){ //si el caracter es un numero unico, ya que el siguiente y anterior en el arreglo son diferentes (estan ordenados) se suma el contador
             numeros++;
         }
     }

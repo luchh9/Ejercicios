@@ -14,9 +14,9 @@ function contarCaracteres() {  //cuento los caracteres de la string recorriendol
   let final = {}                                    //creo un obj donde voy a guardar todo
 
   for(let char in str){                               //indice de cada caracter
-	  if(str[char] in final) {                      //si existe aumentamos el contador
-      final[str[char]] = final[str[char]] + 1
-	  } else {                                          
+	  if(str[char] in final) {
+      final[str[char]] = final[str[char]] + 1  //si existe aumentamos el contador
+	  } else {
       final[str[char]] = 1
     }
   }
@@ -42,7 +42,7 @@ function ordenar(palabra){ //transformo la string en un array y ordeno con el me
   });
 
   array.forEach(function(letra){
-    list.innerHTML += `${letra}`   
+    list.innerHTML += `${letra}`   //recorro y muestro
 
   })
 }
