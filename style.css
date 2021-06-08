@@ -1,5 +1,10 @@
-
+.box {
+    padding-left: 10px;
+    border-radius: 7px;
+    margin-top: 10px;
+    border: black solid 1px;
+    display: flex row;  
+}
 h1 {
-
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
