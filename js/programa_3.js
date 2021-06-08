@@ -78,6 +78,7 @@ function comprobarnumerosrepetidos(pw){ //en esta funcion ordeno la contraseña 
         }
     }
     console.log(numeros)
+    //cambios!!!
 //numeros se vuelve .lengt y voy restando, === mismo tipo e igual valor 
 }
 
