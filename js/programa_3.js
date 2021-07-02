@@ -74,14 +74,17 @@ function comprobarmayusculas(pw){
     
     let cantidad = 0;
     let mayusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";  //hago un recorrido de cada una de las letras mayusculas y comparo
+    
+    let arraypw = Array.from(pw);
+    let arraymayus = Array.from(mayusculas);
 
-    for (let i = 0; i < mayusculas.length; i++) {
-        for (let x = 0; x < pw.length; x++) {
-            if(pw[x]==mayusculas[i]){
-                cantidad+=1;                       //si hay alguna letra sumo en la cantidad
-            }
-        }
-    }
+    arraymayus.map( mayuscula => {
+        arraypw.map(letrapw => {
+                    if(mayuscula == letrapw){
+                        cantidad++;
+                    }
+        })              
+    });
     return cantidad                                //devuelvo la cantidad de letras mayus
 }
 
